@@ -1,4 +1,4 @@
-package com.example.try_out_bottom.spaiin;
+package com.example.try_out_bottom.country;
 
 import android.os.Bundle;
 
@@ -21,21 +21,21 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class spains extends Fragment {
+public class countries extends Fragment {
 
     private RecyclerView recyclerView;
-    private TimAdapter adapter;
-    private List<Tim> teamList;
+    private CoAdapter adapter;
+    private List<countriess> teamList;
     private static final String BASE_URL = "https://www.thesportsdb.com/api/v1/json/3/";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_spains, container, false);
+        View view = inflater.inflate(R.layout.fragment_countries, container, false);
 
         recyclerView = view.findViewById(R.id.recycler_view);
         teamList = new ArrayList<>();
-        adapter = new TimAdapter(getContext(), teamList);
+        adapter = new CoAdapter(getContext(), teamList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
@@ -50,15 +50,15 @@ public class spains extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        TimService service = retrofit.create(TimService.class);
-        Call<TimResponse> call = service.getTeams();
-        call.enqueue(new Callback<TimResponse>() {
+        CoService service = retrofit.create(CoService.class);
+        Call<CoResponse> call = service.getCountries();
+        call.enqueue(new Callback<CoResponse>() {
             @Override
-            public void onResponse(Call<TimResponse> call, Response<TimResponse> response) {
+            public void onResponse(Call<CoResponse> call, Response<CoResponse> response) {
                 if (response.isSuccessful()) {
-                    TimResponse teamResponse = response.body();
-                    if (teamResponse != null && teamResponse.getTeams() != null) {
-                        teamList.addAll(teamResponse.getTeams());
+                    CoResponse coResponse = response.body();
+                    if (coResponse != null && coResponse.getCountries() != null) {
+                        teamList.addAll(coResponse.getCountries());
                         adapter.notifyDataSetChanged();
                         System.out.println("API call successful");
                     }
@@ -69,7 +69,7 @@ public class spains extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<TimResponse> call, Throwable t) {
+            public void onFailure(Call<CoResponse> call, Throwable t) {
                 // Handle network failures
                 System.out.println("API call failed with error: " + t.getMessage());
             }

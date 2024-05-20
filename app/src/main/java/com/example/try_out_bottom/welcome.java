@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.try_out_bottom.Team.arsenal;
+import com.example.try_out_bottom.country.countries;
 import com.example.try_out_bottom.spaiin.spains;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -46,20 +47,23 @@ public class welcome extends AppCompatActivity {
                         selectedFragment = new arsenal();
                     } else if (item.getItemId() == R.id.Spain) {
                         selectedFragment = new spains();
+                    } else if (item.getItemId() == R.id.Countries) {
+                        selectedFragment = new countries();
                     } else if (item.getItemId() == R.id.akun) {
-                        // Ganti dengan memulai aktivitas HomeAct
-                        Intent intent = new Intent(welcome.this, akun.class);
-                        startActivity(intent);
+                        selectedFragment = new akunn();
                     }
 
                     // Ganti fragment yang ditampilkan di container dengan fragment yang dipilih
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, selectedFragment)
-                            .commit();
+                    if (selectedFragment != null) {
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.container, selectedFragment)
+                                .commit();
+                        return true; // Mengembalikan true menandakan bahwa item navigasi telah ditangani
+                    }
 
-                    // Mengembalikan true menandakan bahwa item navigasi telah ditangani
-                    return true;
+                    return false; // Mengembalikan false jika tidak ada fragment yang dipilih
                 }
-            };
 
-}
+            };
+    }
+

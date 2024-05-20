@@ -2,8 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#B68B6B</color>
-    <color name="background">#EBC6AA</color>
-    <color name="blok">#D0A585</color>
-    <color name="log">#8D6648</color>
+    <color name="colorPrimary">#1D6743</color>
+    <color name="background">#7ABA78</color>
+    <color name="blok">#E2F4C5</color>
+    <color name="log">#144121</color>
 </resources>

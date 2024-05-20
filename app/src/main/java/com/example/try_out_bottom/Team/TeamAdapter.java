@@ -50,7 +50,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             teamName = itemView.findViewById(R.id.textView);
-            teamImage = itemView.findViewById(R.id.image);
+            teamImage = itemView.findViewById(R.id.imageView);
         }
 
         public void bind(Team team) {

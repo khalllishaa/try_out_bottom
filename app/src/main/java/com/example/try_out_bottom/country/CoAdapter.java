@@ -1,4 +1,4 @@
-package com.example.try_out_bottom.spaiin;
+package com.example.try_out_bottom.country;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -15,26 +15,26 @@ import com.example.try_out_bottom.R;
 
 import java.util.List;
 
-public class TimAdapter extends RecyclerView.Adapter<TimAdapter.ViewHolder> {
-    private List<Tim> teamList;
+public class CoAdapter extends RecyclerView.Adapter<com.example.try_out_bottom.country.CoAdapter.ViewHolder> {
+    private List<countriess> teamList;
     private LayoutInflater inflater; // java ke design xml
 
     // Constructor accepting context and teamList
-    TimAdapter(Context context, List<Tim> teamList){
+    CoAdapter(Context context, List<countriess> teamList){
         this.teamList = teamList;
         this.inflater = LayoutInflater.from(context);
     }
 
     @NonNull
     @Override
-    public TimAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public com.example.try_out_bottom.country.CoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.item_list, parent, false);
-        return new TimAdapter.ViewHolder(view);
+        return new com.example.try_out_bottom.country.CoAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TimAdapter.ViewHolder holder, int position) {
-        Tim team = teamList.get(position);
+    public void onBindViewHolder(@NonNull com.example.try_out_bottom.country.CoAdapter.ViewHolder holder, int position) {
+        countriess team = teamList.get(position);
         holder.bind(team);
     }
 
@@ -53,12 +53,12 @@ public class TimAdapter extends RecyclerView.Adapter<TimAdapter.ViewHolder> {
             teamImage = itemView.findViewById(R.id.imageView);
         }
 
-        public void bind(Tim team) {
+        public void bind(countriess team) {
             // Bind data to views
-            teamName.setText(team.getStrTeam());
+            teamName.setText(team.getStrLeague());
             // Assuming you use an image loading library like Glide, load the image here
             Glide.with(itemView.getContext())
-                    .load(team.getStrTeamBadge())
+                    .load(team.getStrBadge())
                     .into(teamImage);
         }
     }
