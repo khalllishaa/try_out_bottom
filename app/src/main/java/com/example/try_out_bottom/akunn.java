@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 public class akunn extends Fragment {
-
     SharedPreferences sharedPreferences;
     TextView nameTextView, emailTextView;
     Button logoutButton;

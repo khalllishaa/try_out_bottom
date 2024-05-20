@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         String savedName = sharedPreferences.getString(KEY_NAME, null);
         if (savedName != null) {
             // If data is available, directly open HomeAct
-            Intent intent = new Intent(MainActivity.this, akun.class);
+            Intent intent = new Intent(MainActivity.this, welcome.class);
             startActivity(intent);
             finish(); // Finish MainActivity
         }
